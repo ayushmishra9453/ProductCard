@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Card</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+
+  <div id="productContainer" style="max-width: 600px; margin: 20px auto; background-color: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); overflow: hidden; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
+    <div style="display: flex; flex-direction: column; align-items: center; padding: 20px;">
+      <img style="max-width: 100%; height: auto; border-radius: 4px;" src="./laptop img.jpeg" alt="Product Image">
+      <div style="font-size: 18px; font-weight: bold; margin: 10px 0;">Laptop</div>
+      <div style="font-size: 16px; color: #007bff; margin-bottom: 10px;">₹ 65,000</div>
+      <button style="padding: 10px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s ease;" onclick="addToCart()">Add to Cart</button>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 10px;">
+    <label style="margin-right: 10px;">Grid View</label>
+    <input type="radio" name="viewToggle" onclick="switchView('grid')" checked>
+    <label style="margin-left: 20px; margin-right: 10px;">List View</label>
+    <input type="radio" name="viewToggle" onclick="switchView('list')">
+  </div>
+
+  <script>
+    let cartItemCount = 0;
+
+    function addToCart() {
+      cartItemCount++;
+      alert('Item added to cart! Cart count: ' + cartItemCount);
+    }
+
+    function switchView(view) {
+      const productContainer = document.getElementById('productContainer');
+      if (view === 'grid') {
+        productContainer.style.gridTemplateColumns = 'repeat(auto-fill, minmax(200px, 1fr))';
+        productContainer.style.display = 'grid';
+      } else if (view === 'list') {
+        productContainer.style.gridTemplateColumns = 'none';
+        productContainer.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>
